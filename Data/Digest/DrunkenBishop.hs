@@ -1,6 +1,6 @@
 {-# LANGUAGE BinaryLiterals #-}
 
-module Data.Digest.DrunkenBishop where
+module Data.Digest.DrunkenBishop (drunkenBishop) where
 
 import           Data.Array
 import           Data.Bits
