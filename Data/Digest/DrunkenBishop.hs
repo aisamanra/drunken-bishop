@@ -15,8 +15,8 @@ initialPosition :: (Int, Int)
 initialPosition = (8, 4)
 
 mkBoard :: Board
-mkBoard = array bounds [ (i, 0) | i <- range bounds ]
-  where bounds = ((0, 0), (16, 8))
+mkBoard = array bound [ (i, 0) | i <- range bound ]
+  where bound = ((0, 0), (16, 8))
 
 toDirections :: BS.ByteString -> [Dir]
 toDirections bs = case BS.uncons bs of
@@ -38,7 +38,7 @@ toDir x = go (x .&. 0b11)
         go _    = error "unreachable"
 
 move :: Dir -> (Int, Int) -> (Int, Int)
-move d (x, y) = snap (go d (x, y))
+move d (a, b) = snap (go d (a, b))
   where go UL (x, y) = (x-1, y-1)
         go UR (x, y) = (x+1, y-1)
         go DL (x, y) = (x-1, y+1)
@@ -81,7 +81,7 @@ runSteps pos (d:ds) b =
     else runSteps newPos ds (b // [(newPos, clamp ((b ! newPos) + 1) 0 14)])
 
 drunkenBishop :: BSL.ByteString -> String
-drunkenBishop bs = render (runSteps (8, 4) (toDirections h) mkBoard // [((8, 4), 15)])
+drunkenBishop bs = render (runSteps initialPosition (toDirections h) mkBoard // [((8, 4), 15)])
   where render b = unlines [ foldr (:) "" [ toChar (b ! (x, y)) | x <- [0..16] ]
                            | y <- [0..8]
                            ]
