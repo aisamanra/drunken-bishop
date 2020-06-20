@@ -43,10 +43,12 @@ main = do
   f <- case files of
     [] -> BS.getContents
     _ -> mconcat (map BS.readFile files)
-  putStrLn "+-----------------+"
+  let boardWidth = fst (drunkenBishopBoardSize opts)
+      frame = "+" ++ replicate boardWidth '-' ++ "+"
+  putStrLn frame
   mapM_
     putStrLn
     [ "|" ++ ln ++ "|"
       | ln <- lines (drunkenBishopWithOptions opts f)
     ]
-  putStrLn "+-----------------+"
+  putStrLn frame
