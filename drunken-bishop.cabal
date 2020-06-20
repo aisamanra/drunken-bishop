@@ -29,7 +29,13 @@ library
                      , pureMD5 >= 2.1.3 && <2.2
   default-language:    Haskell2010
 
+flag no-exe
+  description: Do not build the drunken-bishop executable
+  default: True
+
 executable drunken-bishop
+  if flag(no-exe)
+    buildable: False
   hs-source-dirs:      src
   main-is:             Main.hs
   ghc-options:         -Wall
