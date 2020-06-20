@@ -99,17 +99,31 @@ Finally, the `drunkenBishopHash` field can change the hash function used by the 
 
 ## The `drunken-bishop` executable
 
+The accompanying `drunken-bishop` executable takes a list of files, or if none are provided, a string on stdin, runs it through the fingerprinting routine, and prints it with a simple ASCII art frame. It accepts a few of the configuration options described above, as well.
+
 ```
-$ echo 'drunken bishop' | drunken-bishop
+$ printf "hello!" | drunken-bishop
 +-----------------+
-|      o.. ..o  Eo|
-|     .o..o o ...o|
-|       *. . .. . |
-|      o +.. .    |
-|       =S. .     |
-|      +o .       |
-|   . o  .        |
-|    o            |
 |                 |
+|             .   |
+|          . o    |
+|         = o     |
+|      . ^ B .    |
+|       o = . o + |
+|        ..+.+ = E|
+|         +o..=   |
+|         ..  ..  |
++-----------------+
+$ printf "hello!" | drunken-bishop --sha256
++-----------------+
+|           .oo+  |
+|   .        .= o |
+|  . o   .   o + .|
+|   o . = . . = ..|
+|  . = = ^ . . =o |
+|   = + o +.    o+|
+|    o ooo=.o  . o|
+|   .  ..= =.o  o.|
+|      .o.E.. o...|
 +-----------------+
 ```
