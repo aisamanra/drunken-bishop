@@ -23,7 +23,7 @@ The `Data.Digest.DrunkenBishop(drunkenBishop)` function takes a bytestring and p
 
 ## Configurable usage
 
-The `Data.Digets.DrunkenBishop(DrunkenBishopOptions)` type contains several fields which can be configured to change the operation of the algorithm. The default used by the `drunkenBishop` function are kept in an instance of this type called `drunkenBishopDefaultOptions`.
+The `Data.Digest.DrunkenBishop(DrunkenBishopOptions)` type contains several fields which can be configured to change the operation of the algorithm. The default used by the `drunkenBishop` function are kept in an instance of this type called `drunkenBishopDefaultOptions`.
 
 The `drunkenBishopBoardSize` field can set the size of the overall fingerprint image. Note that smaller images will produce "noisier" fingerprints, while larger images will likely produce "sparser" fingerprints.
 

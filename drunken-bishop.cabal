@@ -6,6 +6,9 @@ description: The [Drunken Bishop](http://www.dirk-loss.de/sshvis/drunken_bishop.
              implemented by OpenSSH for visualizing key fingerprints. This
              package implements OpenSSH's visualization while also offering
              extra configuration to allow for specialized uses.
+             .
+             The Drunken Bishop algorithm was designed heuristically, and
+             therefore __should not be considered cryptographically strong__.
 license:          BSD3
 license-file:     LICENSE
 author:           Getty Ritter <drunken-bishop@infinitenegativeutility.com>
@@ -13,7 +16,7 @@ maintainer:       Getty Ritter <drunken-bishop@infinitenegativeutility.com>
 copyright:        ©2020 Getty Ritter
 category:         Cryptography
 build-type:       Simple
-cabal-version:    2
+cabal-version:    1.18
 extra-source-files:
   README.md
 
