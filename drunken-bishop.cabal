@@ -1,12 +1,16 @@
 name:             drunken-bishop
 version:          0.1.0.0
-synopsis:         An implementation of the Drunken Bishop visualization algorithm
--- description:
+synopsis:         An implementation of the Drunken Bishop visual fingerprinting algorithm
+description: The [Drunken Bishop](http://www.dirk-loss.de/sshvis/drunken_bishop.pdf)
+             algorithm is a visual fingerprinting algorithm originally
+             implemented by OpenSSH for visualizing key fingerprints. This
+             package implements OpenSSH's visualization while also offering
+             extra configuration to allow for specialized use.
 license:          BSD3
 license-file:     LICENSE
 author:           Getty Ritter <gdritter@galois.com>
 maintainer:       Getty Ritter <gdritter@galois.com>
-copyright:        ©2016 Getty Ritter
+copyright:        ©2020 Getty Ritter
 -- category:
 build-type:       Simple
 cabal-version:    >= 1.14
@@ -18,9 +22,8 @@ library
                      , array
                      , bytestring
                      , pureMD5
+                     , cryptohash-sha256
   default-language:    Haskell2010
-  default-extensions:  OverloadedStrings,
-                       ScopedTypeVariables
 
 executable drunken-bishop
   hs-source-dirs:      src

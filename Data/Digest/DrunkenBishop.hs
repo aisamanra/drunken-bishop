@@ -1,3 +1,26 @@
+{-|
+Module: Data.Digest.DrunkenBishop
+Copyright: (c) Getty Ritter, 2020
+License: BSD
+Maintainer: Getty Ritter <drunken-bishop@infinitenegativeutility.com>
+Stability: stable
+
+The [Drunken Bishop
+algorithm](http://www.dirk-loss.de/sshvis/drunken_bishop.pdf) is the
+binary fingerprint visualization algorithm used by OpenSSH when
+generating and verifying keys. The intended use is as a visual aid for
+"at a glance" comparing two keys by using the rough visual shape of
+the output as a heuristic.
+
+This module provides the 'drunkenBishop' function which should behave
+identically to the OpenSSH visual fingerprinting algorithm: it takes a
+bytestring and produces a string representing a 17x9 ASCII art image
+which serves as the fingerprint for the input. It also exposes a few
+configuration details to allow customization of the operation of the
+algorithm: swapping out MD5 for another hash function, or using a
+different-sized board, or using a different ASCII art visualization.
+-}
+
 {-# LANGUAGE BinaryLiterals #-}
 
 module Data.Digest.DrunkenBishop
@@ -13,7 +36,7 @@ import Data.Array
 import Data.Bits
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as BSL
-import Data.Digest.Pure.MD5
+import Data.Digest.Pure.MD5 (md5DigestBytes, md5)
 import Data.Word (Word8)
 
 type Board = Array (Int, Int) Word8
